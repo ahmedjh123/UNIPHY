@@ -11,7 +11,7 @@
   --shadow-card: 0 18px 40px rgba(15, 23, 42, 0.12);
 }
 
-/* Reset-ish */
+/* RESET / BASE */
 *,
 *::before,
 *::after {
@@ -49,9 +49,9 @@ a {
   position: sticky;
   top: 0;
   z-index: 30;
-  backdrop-filter: blur(26px);
+  backdrop-filter: blur(24px);
   background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
 }
 
 .header-inner {
@@ -155,7 +155,7 @@ a {
   z-index: -2;
 }
 
-/* stor vit kurva i botten – SaaS/Tickital-style */
+/* stor vit kurva i botten */
 .hero-curves {
   position: absolute;
   left: 50%;
@@ -585,14 +585,12 @@ a {
   display: none;
 }
 
-/* SCREENS ROW */
+/* SCREENS – EN TITT I APPEN */
 
 .screen-row {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 20px;
-  overflow-x: auto;
-  padding-bottom: 4px;
 }
 
 .screen-card {
@@ -851,8 +849,9 @@ a {
   animation-delay: 0.8s;
 }
 
-/* RESPONSIVE */
+/* ========== RESPONSIVE ========== */
 
+/* Tablet */
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -862,10 +861,6 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .screen-row {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .testimonial-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -873,73 +868,16 @@ a {
   .faq-layout {
     grid-template-columns: minmax(0, 1fr);
   }
-}
-
-@media (max-width: 800px) {
-  .main-nav {
-    display: none;
-  }
-
-  .hero-card {
-    padding: 24px 20px 24px;
-  }
-
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-mockups {
-    order: -1;
-    margin-bottom: 16px;
-  }
-
-  .hero-content h1 {
-    font-size: 32px;
-  }
-
-  .hero-cta-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-stats {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .steps-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .feature-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .testimonial-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
 
   .screen-row {
-    grid-auto-flow: column;
-    grid-auto-columns: 70%;
-  }
-
-  .cta-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-/* ===== MOBIL-FINSERI (OVERRIDES) ===== */
 
-/* Tablet & mobil */
+/* Mobil */
 @media (max-width: 768px) {
-  body {
-    background: #ffffff;
+  .main-nav {
+    display: none;
   }
 
   .hero {
@@ -995,7 +933,6 @@ a {
     text-align: left;
   }
 
-  /* Skala ned mobilerna lite */
   .phone {
     width: 210px;
     height: 430px;
@@ -1016,27 +953,29 @@ a {
     margin-bottom: 6px;
   }
 
-  .screen-row {
-    grid-auto-flow: column;
-    grid-auto-columns: 72%;
-    overflow-x: auto;
-    padding-bottom: 10px;
-  }
-
-  .screen-card {
-    min-width: 0;
+  .feature-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .testimonial-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .feature-grid {
+  .faq-layout {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .faq-layout {
+  .screen-row {
     grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .screen-card {
+    text-align: left;
+  }
+
+  .screen-card .phone-small {
+    margin: 0 auto 8px;
   }
 
   .cta-inner {
@@ -1052,7 +991,7 @@ a {
   }
 }
 
-/* Liten mobil (iPhone SE osv.) */
+/* Liten mobil */
 @media (max-width: 480px) {
   .container {
     padding: 0 16px;
@@ -1088,5 +1027,17 @@ a {
 
   .section-header h2 {
     font-size: 24px;
+  }
+
+  .screen-row {
+    gap: 16px;
+  }
+
+  .screen-card h3 {
+    font-size: 14px;
+  }
+
+  .screen-card p {
+    font-size: 13px;
   }
 }
